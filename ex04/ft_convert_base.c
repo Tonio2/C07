@@ -6,7 +6,7 @@
 /*   By: alabalet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/21 11:35:53 by alabalet          #+#    #+#             */
-/*   Updated: 2020/10/22 12:39:39 by alabalet         ###   ########.fr       */
+/*   Updated: 2020/10/22 17:48:09 by alabalet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ char	*ft_createstr_base(int nb, char *base, int len_base)
 	}
 	if (sign == -1)
 		result[cpt++] = '-';
-	ret = malloc(cpt);
+	ret = malloc(cpt + 1);
 	len = cpt;
 	cpt = -1;
 	while (++cpt < len)
