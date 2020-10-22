@@ -1,47 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alabalet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/21 10:23:06 by alabalet          #+#    #+#             */
-/*   Updated: 2020/10/21 10:23:22 by alabalet         ###   ########.fr       */
+/*   Created: 2020/10/16 16:56:27 by alabalet          #+#    #+#             */
+/*   Updated: 2020/10/20 16:25:36 by alabalet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int		ft_strlen(char *src)
+int		ft_ultimate_range(int **range, int min, int max)
 {
 	int cpt;
 
 	cpt = 0;
-	while (src[cpt])
-		cpt++;
-	return (cpt);
-}
-
-void	ft_strcpy(char *dest, char *src)
-{
-	int cpt;
-
-	cpt = 0;
-	while (src[cpt])
+	if (min >= max)
 	{
-		dest[cpt] = src[cpt];
-		cpt++;
+		range[0] = 0;
+		return (0);
 	}
-	dest[cpt] = '\0';
-}
-
-char	*ft_strdup(char *src)
-{
-	int		len_src;
-	char	*dest;
-
-	len_src = ft_strlen(src);
-	dest = malloc(len_src + 1);
-	ft_strcpy(dest, src);
-	return (dest);
+	else
+	{
+		*range = malloc((max - min) * sizeof(int));
+		if (!*range)
+		{
+			*range = 0;
+			return (-1);
+		}
+		while (min + cpt < max)
+		{
+			(*range)[cpt] = min + cpt;
+			cpt++;
+		}
+	}
+	return (max - min);
 }

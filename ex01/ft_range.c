@@ -1,47 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alabalet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/21 10:23:06 by alabalet          #+#    #+#             */
-/*   Updated: 2020/10/21 10:23:22 by alabalet         ###   ########.fr       */
+/*   Created: 2020/10/16 15:56:27 by alabalet          #+#    #+#             */
+/*   Updated: 2020/10/22 12:03:41 by alabalet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int		ft_strlen(char *src)
+int		*ft_range(int min, int max)
 {
 	int cpt;
+	int *result;
 
 	cpt = 0;
-	while (src[cpt])
-		cpt++;
-	return (cpt);
-}
-
-void	ft_strcpy(char *dest, char *src)
-{
-	int cpt;
-
-	cpt = 0;
-	while (src[cpt])
+	if (min >= max)
+		return (0);
+	result = malloc((max - min) * sizeof(int));
+	while (min + cpt < max)
 	{
-		dest[cpt] = src[cpt];
+		result[cpt] = min + cpt;
 		cpt++;
 	}
-	dest[cpt] = '\0';
-}
-
-char	*ft_strdup(char *src)
-{
-	int		len_src;
-	char	*dest;
-
-	len_src = ft_strlen(src);
-	dest = malloc(len_src + 1);
-	ft_strcpy(dest, src);
-	return (dest);
+	return (result);
 }
