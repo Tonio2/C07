@@ -6,31 +6,17 @@
 /*   By: alabalet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/21 11:35:53 by alabalet          #+#    #+#             */
-/*   Updated: 2020/10/22 11:45:51 by alabalet         ###   ########.fr       */
+/*   Updated: 2020/10/22 12:39:39 by alabalet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int		ft_lenbase(char *base)
-{
-	int		cpt;
-	int		ref[255];
-
-	cpt = 0;
-	while (cpt < 255)
-		ref[cpt++] = 0;
-	cpt = 0;
-	while (base[cpt])
-	{
-		if (ref[(int)base[cpt]])
-			return (0);
-		if (base[cpt] == '+' || base[cpt] == '-')
-			return (0);
-		ref[(int)base[cpt++]] = 1;
-	}
-	return (cpt);
-}
+int		ft_lenbase(char *base);
+int		ft_indexof(char c, char *str);
+int		ft_atoi_base(char *str, char *base, int len_base);
+char	*ft_createstr_base(int nb, char *base, int len_base);
+char	*ft_convert_base(char *nbr, char *base_from, char *base_to);
 
 int		ft_indexof(char c, char *str)
 {
